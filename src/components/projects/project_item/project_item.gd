@@ -250,6 +250,11 @@ func _fill_data(item: Projects.Item) -> void:
 		'run',
 	]).all():
 		action.disable(item.is_missing or item.has_invalid_editor)
+	
+	for action in _actions.sub_list([
+		'run',
+	]).all():
+		action.disable(not item.has_main_scene)
 
 
 func _view_command(item: Projects.Item) -> void:
